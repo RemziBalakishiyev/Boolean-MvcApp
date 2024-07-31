@@ -1,0 +1,65 @@
+﻿
+
+<div class="row">
+
+    @await Html.PartialAsync("~/Views/Partials/PageHead.cshtml", "Exam")
+    @await Component.InvokeAsync("GroupFilter")
+
+    <div class="card p-2 my-2">
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#examModal" style="width:50px">+</a>
+        </div>
+
+        <div class="modal " id="examModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Exam Form</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form asp-action="AddNewStudent" asp-controller="Student" method="post" class="d-flex gap-3 flex-column">
+                            <div class="row">
+                                <div class="mb-3 col-4">
+                                    <label for="firstName" class="form-label">Result</label>
+                                    <input type="number" class="form-control" id="result" placeholder="Result" >
+                                </div>
+                                <div class="mb-3 col-4">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="date" class="form-control" id="exam-date">
+                                </div>
+                                <div class="mb-3 col-4">
+                                    <label for="firstName" class="form-label">Students</label>
+                                    <select class="form-select form-select-sm mb-3" id="student-id" asp-items='new SelectList(ViewBag.Students,"Key","Value")'>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save-exam">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-success table-striped shadow" id="examineTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Subject Name</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script src="~/js/Examines.js"></script>
+    <script src="~/js//ExaminesTable.js"></script>
+}

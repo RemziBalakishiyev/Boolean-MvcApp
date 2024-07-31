@@ -1,0 +1,23 @@
+﻿@model IEnumerable<StudentModel>
+
+@* @{
+    string classType = (int)ViewData["Point"]! < 91 ? "bg-danger" : "bg-success";
+    string data = (int)ViewData["Point"]! > 91 ? "Honour Degree" : "Standart Degree";
+} *@
+@await Html.PartialAsync("~/Views/Partials/PageHead.cshtml", "Home")
+
+<div class="w-100 d-flex justify-content-center">
+    @await Component.InvokeAsync("GroupFilter");
+    <ol class="list-group list-group-numbered w-100">
+        @foreach (var student in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Student</div>
+                    @student.FirstName @student.LastName
+                </div>
+                <a class="btn btn-outline-success rounded-pill" asp-controller="Student" asp-action="StudentDetail" asp-route-id="@student.Id">Go</a>
+            </li>
+        }
+    </ol>
+</div>

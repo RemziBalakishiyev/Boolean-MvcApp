@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StudentDetailModel>
+@{
+    ViewData["Title"] = "StudentList";
+}
+
+<div class="row">
+
+    @await Html.PartialAsync("~/Views/Partials/PageHead.cshtml", "Exam")
+
+    <table class="table table-striped shadow">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Group</th>
+                <th>Birth Place</th>
+                <th>Accep Point</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Id</td>
+                    <td>@student.FullName</td>
+                    <td>@student.Gender</td>
+                    <td>@student.GroupName</td>
+                    <td>@student.StudentDetail!.BirthPlace!</td>
+                    <td>@student.StudentDetail!.AcceptPoint!</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

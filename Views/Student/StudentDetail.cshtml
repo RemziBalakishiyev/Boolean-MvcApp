@@ -1,0 +1,19 @@
+﻿@model StudentDetailModel
+
+
+
+<div class="row mt-2">
+    @await Html.PartialAsync("~/Views/Partials/PageHead.cshtml", "Student Detail")
+    <div class="card">
+        <div class="card-header">
+            @Model.FullName
+        </div>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item">Gender: @Model.Gender</li>
+                <li class="list-group-item">Accept Point: @Model.StudentDetail.AcceptPoint</li>
+                <li class="list-group-item">Birth Place: @Model.StudentDetail.BirthPlace</li>
+            </ul>
+        </div>
+    </div>
+</div>

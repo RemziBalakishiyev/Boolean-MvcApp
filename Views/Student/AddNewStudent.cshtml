@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "AddNewStudent";
+}
+@model StudentAddModel
+
+
+<div class="row">
+    <div class="card p-0">
+        <div class="card-header bg-dark text-light">
+            Create New student form
+        </div>
+        <div class="card-body">
+            <form asp-action="AddNewStudent" asp-controller="Student" method="post"  class="d-flex gap-3 flex-column">
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Bruce etc" asp-for="FirstName">
+                        <span class="text-danger" asp-validation-for="FirstName">
+                        </span>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Wayne etc" asp-for="LastName">
+                        <span class="text-danger" asp-validation-for="LastName">
+                        </span>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="firstName" class="form-label">Patronymic</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Bruce etc" asp-for="Patronymic">
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="firstName" class="form-label">Groups</label>
+                        <select class="form-select form-select-sm mb-3" asp-items='new SelectList(ViewBag.Groups,"Key","Value")' asp-for="GroupId">
+                        </select>
+                        <span class="text-danger" asp-validation-for="GroupId">
+                        </span>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="firstName" class="form-label">Genders</label>
+                        <select class="form-select form-select-sm mb-3" asp-items='new SelectList(ViewBag.Genders,"Key","Value")' asp-for="GenderId">
+                        </select>
+                        <span class="text-danger" asp-validation-for="GenderId">
+                        </span>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="birthPlace" class="form-label">Birth Place</label>
+                        <input type="text" class="form-control" id="birthPlace" placeholder="New York" asp-for="BirthPlace">
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="birthDate" class="form-label">Birth Date</label>
+                        <input type="date" class="form-control" id="birthDate" asp-for="DateOfBirth">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="acceptPoint" class="form-label">Acceept Point</label>
+                        <input type="number" class="form-control" id="acceptPoint" asp-for="AcceptPoint">
+                        <span class="text-danger" asp-validation-for="AcceptPoint">
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                       <button class="btn btn-dark" type="submit">Add New student</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
