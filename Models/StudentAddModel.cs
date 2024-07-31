@@ -20,7 +20,7 @@ public class StudentAddModel
 
     public string? BirthPlace { get; set; }
     public DateOnly? DateOfBirth { get; set; }
-    [Required(ErrorMessage = "Accept point is required")]
+    //[Required(ErrorMessage = "Accept point is required")]
     [Min(30, ErrorMessage ="Accept point must be between 30 and 100")]
     [Max(100, ErrorMessage = "Accept point must be between 30 and 100")]
     public int? AcceptPoint { get; set; }
